@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "http-errors": "^2.0.0",
+    "http-status-codes": "^2.3.0",
+    "logger": "^0.0.1",
+    "mongoose": "^8.7.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
+  },
+  "name": "back-aymingcaescalcs",
+  "version": "1.0.0",
+  "description": "CAES Calcs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js -e,js,css"
+  },
+  "author": "Juan Carlos Cruz Balladares",
+  "license": "ISC"
+}
