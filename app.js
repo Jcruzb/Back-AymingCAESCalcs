@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 
+
 require('./config/db.config')
 
 const app = express();
@@ -14,6 +15,9 @@ app.get('/', (req, res) => {
     res.send('Ayming CAES CAlcs API');
     }
 );
+
+const fileRoutes = require('./routes/file.routes');
+app.use('/file', fileRoutes);
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
