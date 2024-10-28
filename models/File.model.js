@@ -3,67 +3,60 @@ const Schema = mongoose.Schema;
 
 const fileSchema = new mongoose.Schema({
   code: {
-    type:String,
-    required:true,
-    unique:true
+    type: String,
+    required: true,
+    unique: true
   },
   name: {
-    type:String,
-    required:true
+    type: String,
+    required: true
   },
   version: {
-    type:String,
-    required:true
+    type: String,
+    required: true
+  },
+  Sector: {
+    type: Schema.Types.ObjectId,
+    ref: 'Sector'
   },
   requirements: {
-    type:String
+    type: String
   },
   application: {
-    type:String
-  },
-  energySaving:{
-    type:Number
+    type: String
   },
   variables: [
     {
-      type:Schema.Types.ObjectId,
-      ref:'Variable',
-      default:[]
+      type: Schema.Types.ObjectId,
+      ref: 'Variable',
+      default: []
     }
   ],
   associatedTables: [
     {
-      type:Schema.Types.ObjectId,
-      ref:'Table',
-      default:[]
+      type: Schema.Types.ObjectId,
+      ref: 'Table',
+      default: []
     }
   ],
   documents: [
     {
-      name: { type: String },
-      url: { type: String }
+      description: String,
+      obligatory: Boolean,
     }
   ],
   status: {
-    type:String,
-    enum:['borrador', 'activa', 'descontinuada'],
-    default:'borrador'
+    type: String,
+    enum: ['borrador', 'activa', 'descontinuada'],
+    default: 'borrador'
   },
-  Sector:{
-    type: Schema.Types.ObjectId,
-    ref:'Sector'
+  creationDate: {
+    type: Date,
+    default: Date.now
   },
-  duration:{
-    type:Number,
-    default:0
-  },
-  creationDate:{
-    type:Date,
-    default:Date.now
-  },
-  modificationDate:{
-    type:Date,
-    default:Date.now
+  modificationDate: {
+    type: Date,
+    default: Date.now
   }
 });
 
