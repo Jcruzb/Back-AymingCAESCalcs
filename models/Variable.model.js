@@ -8,6 +8,11 @@ const variableSchema = new Schema({
         type: String,
         required: true
     },
+    //siglas
+    acronym: {
+        type: String,
+        required: true
+    },
     Kind: {
         type: String,
         enum: KIND,

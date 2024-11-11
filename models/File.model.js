@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const SECTOR = ["Industrial", "Terciario", "Residencial", "Transporte", "Agrario"];
+
 const fileSchema = new mongoose.Schema({
   code: {
     type: String,
@@ -9,15 +11,18 @@ const fileSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   version: {
-    type: String,
+    type: Number,
     required: true
   },
   Sector: {
-    type: Schema.Types.ObjectId,
-    ref: 'Sector'
+    type: String,
+    enum: SECTOR,
+    required: true,
+    default: 'Industrial'
   },
   requirements: {
     type: String
@@ -25,6 +30,13 @@ const fileSchema = new mongoose.Schema({
   application: {
     type: String
   },
+  tables: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Table',
+      default: []
+    }
+  ],
   variables: [
     {
       type: Schema.Types.ObjectId,
