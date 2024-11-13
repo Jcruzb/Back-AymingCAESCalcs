@@ -62,6 +62,10 @@ const fileSchema = new mongoose.Schema({
     enum: ['borrador', 'activa', 'descontinuada'],
     default: 'borrador'
   },
+  energySavingCalculation: {
+    type: Schema.Types.ObjectId,
+    ref: 'CalculationVariable'
+  },
   creationDate: {
     type: Date,
     default: Date.now

@@ -27,7 +27,8 @@ const variableSchema = new Schema({
         ref: 'Table'
     },
     formula: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'CalculationVariable'
     },
     dependencies: [
         {

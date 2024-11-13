@@ -22,6 +22,8 @@ const tableRoutes = require('./routes/table.routes');
 app.use('/table', tableRoutes);
 const variableRoutes = require('./routes/variable.routes');
 app.use('/variable', variableRoutes);
+const calculationVariableRoutes = require('./routes/calculationVariable.routes');
+app.use('/calculation', calculationVariableRoutes);
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
