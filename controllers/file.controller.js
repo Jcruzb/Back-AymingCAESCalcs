@@ -34,6 +34,7 @@ module.exports.getFile = (req, res, next) => {
 
     File.findById(id)
         .populate('tables')
+        .populate('variables')
         .then(file => {
             if (!file) {
                 console.log('File not found')

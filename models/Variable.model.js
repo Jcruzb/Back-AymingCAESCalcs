@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const KIND = ["Number", "Table", "Calculation"];
+const TYPE = ["Number", "Table", "Calculation"];
 
 const variableSchema = new Schema({
     name: {
@@ -13,9 +13,9 @@ const variableSchema = new Schema({
         type: String,
         required: true
     },
-    Kind: {
+    type: {
         type: String,
-        enum: KIND,
+        enum: TYPE,
         required: true
     },
     file: {
