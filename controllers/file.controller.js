@@ -33,6 +33,7 @@ module.exports.getFile = (req, res, next) => {
     const id = req.params.id
 
     File.findById(id)
+        .populate('tables')
         .then(file => {
             if (!file) {
                 console.log('File not found')

@@ -122,3 +122,19 @@ module.exports.deleteTable = (req, res, next) => {
             next(createError(StatusCodes.INTERNAL_SERVER_ERROR, 'Error al eliminar la tabla'));
         });
 };
+
+module.exports.getTablesByFile = (req, res, next) => {
+    const fileId = req.params.fileId;
+
+    Table.find({ file: fileId })
+        .then(tables => {
+            if (!tables || tables.length === 0) {
+                return next(createError(StatusCodes.NOT_FOUND, 'No se encontraron tablas para la ficha especificada'));
+            }
+            res.status(StatusCodes.OK).json(tables);
+        })
+        .catch(err => {
+            console.log(err);
+            next(createError(StatusCodes.INTERNAL_SERVER_ERROR, 'Error al obtener las tablas'));
+        });
+};
