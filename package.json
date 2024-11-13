@@ -15,7 +15,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js -e,js,css"
+    "dev": "nodemon app.js -e,js,css",
+    "files.seeds": "node ./seeds/file.seed.js",
+    "all.seeds": "npm run files.seeds"
   },
   "author": "Juan Carlos Cruz Balladares",
   "license": "ISC"

@@ -18,7 +18,7 @@ const fileSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  Sector: {
+  sector: {
     type: String,
     enum: SECTOR,
     required: true,
