@@ -42,4 +42,4 @@ const variableSchema = new Schema({
 
 const Variable = mongoose.model('Variable', variableSchema);
 
-export default Variable;
+module.exports = Variable;

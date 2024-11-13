@@ -2,10 +2,30 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const tableSchema = new mongoose.Schema({
+const columnSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    required: {
+        type: Boolean,
+        default: false
+    },
+    unique: {
+        type: Boolean,
+        default: false
+    }
+});
+
+const tableSchema = new Schema({
     file: { 
         type: Schema.Types.ObjectId, 
-        ref: 'File' 
+        ref: 'File',
+        required: true
     },
     name: {
         type: String,
@@ -14,15 +34,7 @@ const tableSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    columns: [
-        {
-            name: String,
-            type: String,
-            required: Boolean,
-            unique: Boolean,
-            default: null
-        }
-    ],
+    columns: [columnSchema],
     rows: [
         [
             {
@@ -47,4 +59,5 @@ const tableSchema = new mongoose.Schema({
 });
 
 const Table = mongoose.model('Table', tableSchema);
-    
+
+module.exports = Table;
